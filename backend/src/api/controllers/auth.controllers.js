@@ -1,5 +1,6 @@
 // Node module import
 import http from "http";
+import jwt from "jsonwebtoken";
 import { compare } from "bcrypt";
 
 // Model imports
@@ -29,7 +30,7 @@ const AuthController = {
         email: email,
         password: password,
         type: type,
-        ip_address: request.ip,
+        ip_address: request.connection.remoteAddress,
       };
 
       if (type == "patient") {
@@ -80,7 +81,7 @@ const AuthController = {
       }
 
       // Create the JWT
-      const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+      const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY, {
         expiresIn: 900,
       });
 
