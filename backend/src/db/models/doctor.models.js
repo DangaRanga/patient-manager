@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 
-import { User } from "./user.models";
+import { UserModel } from "./user.models";
 
 const DoctorSchema = new mongoose.Schema({});
 
 // Declare discriminator for schema inheritance
-const Doctor = User.discriminator("Doctor", DoctorSchema);
+const DoctorModel = UserModel.discriminator("Doctor", DoctorSchema);
 
-export { Doctor, DoctorSchema };
+export { DoctorModel, DoctorSchema };

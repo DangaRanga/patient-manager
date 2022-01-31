@@ -31,11 +31,22 @@ const UserSchema = new mongoose.Schema({
     },
     required: [true, "Email required"],
   },
+
+  ip_address: {
+    type: String,
+    requred: true,
+  },
+
+  type: {
+    type: String,
+    lowercase: true,
+    enum: ["patient", "doctor"],
+  },
 });
 
-const User = mongoose.model("User", UserSchema);
+const UserModel = mongoose.model("User", UserSchema);
 
-// Hash and Salt Password before saving
+// Prehook to Hash and Salt Password before saving
 UserSchema.pre("save", async function () {
   // Create the password hash
   if (this.isModified("password")) {
@@ -45,4 +56,4 @@ UserSchema.pre("save", async function () {
   }
 });
 
-export { User, UserSchema };
+export { UserModel, UserSchema };
