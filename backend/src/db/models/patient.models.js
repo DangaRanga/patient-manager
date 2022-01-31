@@ -39,6 +39,11 @@ const PatientSchema = new Schema({
     type: [Object],
     default: [],
   },
+
+  ip_address: {
+    type: String,
+    requred: true,
+  },
 });
 
 // Hash and Salt Password before saving
