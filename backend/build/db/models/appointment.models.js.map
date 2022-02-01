@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/db/models/appointment.models.js"],"names":[],"mappings":";;AAAA","sourcesContent":["import mongoose from \"mongoose\";\r\n"],"file":"appointment.models.js"}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/api/controllers/patient.controllers.js"],"names":["PatientController"],"mappings":";;AAAA;;AAEA,IAAMA,iBAAiB,GAAG,EAA1B","sourcesContent":["import { PatientModel } from \"../../db/models/patient.models\";\r\n\r\nconst PatientController = {};\r\n"],"file":"patient.controllers.js"}
