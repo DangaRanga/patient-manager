@@ -24,3 +24,15 @@ jobs:
       - name: Run Tests
         working-directory: ./backend
         run: yarn test
+
+  backend_deploy:
+    # Ensure that tests pass before deploying
+    needs: backend_ci
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "patient-manager-eval"
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
