@@ -1,11 +1,16 @@
+// React imports
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+
+// Route Imports
+import RouteClient from "components/routes/RouteClient";
+
+// Context imports
 function App() {
   return (
-    <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4">
-      <h1 className="text-3xl text-center font-bold underline">
-        {" "}
-        Hello world!{" "}
-      </h1>
-    </div>
+    <Router>
+      <RouteClient />
+    </Router>
   );
 }
 
