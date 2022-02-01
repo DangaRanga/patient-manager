@@ -8,10 +8,13 @@ import { UserModel } from "../../db/models/user.models";
 import { PatientModel } from "../../db/models/patient.models";
 import { DoctorModel } from "../../db/models/doctor.models";
 
+// Helper Function imports
+import { requestHandler } from "../../helpers/handlers";
+
 const AuthController = {
   async registerUser(request, response) {
     // Destructure request body
-    const { firstName, lastName, email, password, type } = request.body;
+    const { firstName, lastName, email, password, role } = request.body;
 
     // Validation checks
 
@@ -24,33 +27,47 @@ const AuthController = {
         });
       }
 
+      // Initialize key variables
       const userDetails = {
         firstName: firstName,
         lastName: lastName,
         email: email,
         password: password,
-        type: type,
+        role: role,
         ip_address: request.connection.remoteAddress,
       };
 
-      if (type == "patient") {
-        const newPatient = new PatientModel(userDetails);
+      const errorResponse = response
+        .status(400)
+        .json({ err: `Error saving ${role} ${err.message}` });
 
+      const succesResponse = response
+        .status(201)
+        .json({ success: `${role} Successfully saved` });
+
+      if (role == "patient") {
+        // Attempt to save new patient to database
+        const newPatient = new PatientModel(userDetails);
         newPatient.save((err) => {
           if (err) {
-            return response
-              .status(400)
-              .json({ err: `Error saving ${type} ${err.message}` });
+            return errorResponse;
           } else {
-            return response
-              .status(201)
-              .json({ success: `${type} Successfully saved` });
+            return succesResponse;
           }
         });
-      } else if (type === "doctor") {
+      } else if (role === "doctor") {
+        // Attempt to save new doctor to database
         const newDoctor = DoctorModel.create(userDetails);
+
+        newDoctor.save((err) => {
+          if (err) {
+            return errorResponse;
+          } else {
+            return succesResponse;
+          }
+        });
       } else {
-        return response.status(400).json({ err: "No User type specified" });
+        return response.status(400).json({ err: "No User role specified" });
       }
     } catch (err) {
       return response.status(500).json({ error: err.message });

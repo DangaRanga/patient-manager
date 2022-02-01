@@ -1,0 +1,61 @@
+{
+  "env": {
+    "jest/globals": true,
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jest/recommended",
+    "plugin:prettier/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks", "jest"],
+  "rules": {
+    // Linting Rules for React and JSX
+    "react/react-in-jsx-scope": 0,
+    "react/destructuring-assignment": ["warn", "always"],
+    "react/prop-types": "off",
+    "react/jsx-pascal-case": [
+      2,
+      { "allowAllCaps": false, "allowNamespace": false }
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      { "extensions": [".test.js", ".jsx", ".tsx"] }
+    ],
+    "react/jsx-tag-spacing": [
+      "warn",
+      {
+        "afterOpening": "never",
+        "beforeClosing": "never",
+        "beforeSelfClosing": "always"
+      }
+    ],
+    "react/no-multi-comp": ["error", { "ignoreStateless": false }],
+    "react/no-unstable-nested-components": ["warn", { "allowAsProps": true }],
+    // Enforce Strictly functional components
+    "react/function-component-definition": [
+      "error",
+      { "namedComponents": "function-declaration" }
+    ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "linkComponents": [
+      // Components used as alternatives to <a> for linking, eg. <Link to={ url } />
+      "Hyperlink",
+      { "name": "Link", "linkAttribute": "to" }
+    ]
+  }
+}
