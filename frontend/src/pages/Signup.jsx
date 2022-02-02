@@ -4,9 +4,10 @@ import { RegistrationForm } from "components/forms";
 
 function Signup() {
   return (
-    <div>
-      <RegistrationInfo /> <RegistrationForm />
-    </div>
+    <main className="grid grid-cols-2">
+      <RegistrationInfo />
+      <RegistrationForm />
+    </main>
   );
 }
 

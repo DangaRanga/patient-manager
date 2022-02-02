@@ -1,6 +1,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
+// Component imports
+import { Navbar } from "components/elements";
+
 // Page imports
 import {
   Login,
@@ -14,7 +17,7 @@ import {
 function RouteClient() {
   return (
     <div>
-      This works
+      <Navbar />
       <Routes>
         <Route path="/" element={<Dashboard />}></Route>
         <Route path="/doctor/:doctorid" element={<DoctorDetails />}></Route>

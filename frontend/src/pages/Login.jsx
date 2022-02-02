@@ -4,10 +4,10 @@ import { LoginForm } from "components/forms";
 
 function Login() {
   return (
-    <div className="container mx-auto columns-2">
-      <LoginInfo />
+    <main className="grid grid-cols-2">
       <LoginForm />
-    </div>
+      <LoginInfo />
+    </main>
   );
 }
 
