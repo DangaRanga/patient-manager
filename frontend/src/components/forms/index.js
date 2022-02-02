@@ -1,3 +1,3 @@
-export { default as LoginForm } from "./LoginForm";
-export { default as RegistrationForm } from "./RegistrationForm";
-export { default as AppointmentForm } from "./AppointmentForm";
+export { default as LoginForm } from "./LoginForm/LoginForm";
+export { default as RegistrationForm } from "./RegistrationForm/RegistrationForm";
+export { default as AppointmentForm } from "./AppointmentForm/AppointmentForm";
