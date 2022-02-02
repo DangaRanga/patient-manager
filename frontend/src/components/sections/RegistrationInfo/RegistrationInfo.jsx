@@ -9,7 +9,7 @@ function RegistrationInfo() {
     <section className="bg-slate flex flex-col items-center text-center py-3">
       <img className="h-4/6" src={EasyAppointmentsInfo} />
       <img className="h-12 my-1" src={Medication} />
-      <h4 className="text-primary font-semibold text-lg my-1">
+      <h4 className="text-primary-100 font-semibold text-lg my-1">
         {" "}
         Easily Request Appointments!{" "}
       </h4>

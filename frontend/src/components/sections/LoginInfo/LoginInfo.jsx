@@ -12,7 +12,7 @@ function LoginInfo() {
     <section className="bg-slate flex flex-col items-center text-center py-3">
       <img className="h-4/6" src={AppointmentsGraphic} />
       <img className="h-12 my-1" src={Calendar} />
-      <h4 className="text-primary font-semibold text-lg my-1">
+      <h4 className="text-primary-100 font-semibold text-lg my-1">
         {" "}
         Never miss an appointment again!{" "}
       </h4>
