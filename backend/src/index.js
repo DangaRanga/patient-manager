@@ -38,6 +38,6 @@ app.get("/", (req, res, next) => {
   res.json({ message: "from index api" });
 });
 
-app.listen(8080, () => {
+app.listen(PORT, () => {
   console.log(`Server is running`);
 });
