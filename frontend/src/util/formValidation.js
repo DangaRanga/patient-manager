@@ -37,22 +37,19 @@ export const loginSchema = yup.object().shape({
 /**
  * Validation parameters for the registration form
  * @typedef {yup.ObjectSchema} RegistrationSchema
- * @property {string} business_name - The name of the business being registered
- * @property {string} full_name - The name of the business owner
+ * @property {string} firstName- The first name of the user
+ * @property {string} lastName - The last name of the user
  * @property {string} email - The email address of the user
  * @property {string} password - The password of the user
- * @property {string} password_confirm - An additional field to ensure that the user entered the correct password
+ * @property {string} passwordConfirm - An additional field to ensure that the user entered the correct password
  */
 export const registrationSchema = yup.object().shape({
-  business_name: yup.string().required("The name of your business is required"),
-  full_name: yup.string().required("Your full name is required"),
+  firstName: yup.string().required("Your first name is required"),
+  lastName: yup.string().required("Your last name is required"),
   email: yup
     .string()
     .email("Please enter a valid email address")
     .required("Your email address is required"),
-  description: yup
-    .string()
-    .required("Please give a brief description of your business"),
   password: yup.string().required("Your password is required"),
   password_confirm: yup
     .string()
