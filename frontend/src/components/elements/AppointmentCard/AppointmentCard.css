@@ -1,0 +1,12 @@
+.status {
+  border-radius: 100%;
+
+  padding: 10px;
+}
+.completed {
+  background-color: #0081f7;
+}
+
+.confirmed {
+  background-color: #24de76;
+}

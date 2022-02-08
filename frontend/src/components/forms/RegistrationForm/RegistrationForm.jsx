@@ -12,13 +12,13 @@ import { successNotification } from "util/notifications";
 import { registrationSchema } from "util/formValidation";
 
 function RegistrationForm() {
-  const { register, handleSubmit } = useForm({
+  const { register } = useForm({
     resolver: yupResolver(registrationSchema),
   });
 
-  const onSubmit = () => {
-    successNotification("This works");
-  };
+  // const onSubmit = () => {
+  // successNotification("This works");
+  // };
 
   return (
     <section className="p-6">
@@ -57,8 +57,12 @@ function RegistrationForm() {
         />
         <div className="flex items-center my-6">
           <button
+            type="button"
             className="text-white text-sm bg-primary-100 hover:bg-primary-200 px-8 py-3 font-medium rounded"
-            onClick={handleSubmit(onSubmit)}
+            onClick={(e) => {
+              e.preventDefault();
+              successNotification("this works");
+            }}
           >
             Create a free account
           </button>
