@@ -3,10 +3,12 @@ import mongoose from "mongoose";
 import { UserModel } from "./user.models";
 
 const PatientSchema = new mongoose.Schema({
-  appointments: {
-    type: [Object],
-    default: [],
-  },
+  appointments: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Appointment",
+    },
+  ],
 });
 
 // Declare discriminator for schema inheritance

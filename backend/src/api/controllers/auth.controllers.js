@@ -8,9 +8,6 @@ import { UserModel } from "../../db/models/user.models";
 import { PatientModel } from "../../db/models/patient.models";
 import { DoctorModel } from "../../db/models/doctor.models";
 
-// Helper Function imports
-import { requestHandler } from "../../helpers/handlers";
-
 const AuthController = {
   async registerUser(request, response) {
     // Destructure request body
